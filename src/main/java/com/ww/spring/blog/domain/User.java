@@ -1,12 +1,20 @@
 package com.ww.spring.blog.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @ClassName User
  * @Author：WW
  * @Description
  * @Date: 11:25$ 2018/12/19$
  **/
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
@@ -35,12 +43,17 @@ public class User {
         this.email = email;
     }
 
-    public User(){
+    protected User(){
 
     }
     public User(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User[id=%d,name='%s',email='%s']",id,name,email);
     }
 }

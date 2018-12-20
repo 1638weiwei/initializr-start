@@ -1,6 +1,7 @@
 package com.ww.spring.blog.repository;
 
 import com.ww.spring.blog.domain.User;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
@@ -10,12 +11,5 @@ import java.util.List;
  * @Description
  * @Date: 11:27$ 2018/12/19$
  **/
-public interface UserRepository {
-    User saveOrUpdateUser(User user);
-
-    void deleteUser(Long id);
-
-    User getUserById(Long id);
-
-    List<User> listUsers();
+public interface UserRepository extends CrudRepository<User, Long> {
 }
